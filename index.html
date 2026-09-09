@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buzón CUC Escucha — Facultad de Ingeniería</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="grid-bg">
+
+<header class="site wrap">
+  <div class="brand">
+    <svg class="brand-mark" viewBox="0 0 40 40" fill="none">
+      <rect x="4" y="9" width="32" height="23" rx="2" stroke="#D9A441" stroke-width="1.6"/>
+      <path d="M4 12 L20 24 L36 12" stroke="#D9A441" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M20 24 L20 32" stroke="#D9A441" stroke-width="1.6" stroke-dasharray="1.5 3"/>
+    </svg>
+    <div class="brand-text">
+      <strong>Buzón CUC Escucha</strong>
+      <span>Facultad de Ingeniería</span>
+    </div>
+  </div>
+  <nav class="site">
+    <a href="#categorias">Temas</a>
+    <a href="#formulario">Enviar sugerencia</a>
+    <a href="#registro">Sugerencias recientes</a>
+  </nav>
+</header>
+
+<section class="hero wrap">
+  <div>
+    <p class="eyebrow">Un espacio para mejorar juntos la Facultad</p>
+    <h1>Tu experiencia en Ingeniería, en tus propias palabras</h1>
+    <p class="lede">Cuéntanos qué funciona y qué se puede mejorar en bienestar, servicios, clases, inclusión, espacios y procesos académicos. Cada sugerencia llega directo a quienes pueden actuar sobre ella.</p>
+    <div class="hero-cta">
+      <a href="#formulario" class="btn btn-brass">Enviar una sugerencia</a>
+      <a href="#categorias" class="btn btn-ghost">Ver los temas</a>
+    </div>
+    <div class="titleblock">
+      <span><b>Emisor</b>Estudiantes CUC</span>
+      <span><b>Destino</b>Decanatura de Ingeniería</span>
+      <span><b>Tiempo</b>2–3 min</span>
+    </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <svg viewBox="0 0 320 300" fill="none">
+      <rect x="30" y="150" width="260" height="110" rx="4" stroke="#D9A441" stroke-width="1.6"/>
+      <path d="M30 150 L160 210 L290 150" stroke="#D9A441" stroke-width="1.6"/>
+      <path d="M160 210 L160 260" stroke="#D9A441" stroke-width="1.2" stroke-dasharray="2 4"/>
+      <g class="paper">
+        <rect x="108" y="42" width="104" height="140" rx="2" fill="#F6F1E4"/>
+        <line x1="122" y1="66" x2="198" y2="66" stroke="#B6863A" stroke-width="2"/>
+        <line x1="122" y1="82" x2="198" y2="82" stroke="#C9BE9F" stroke-width="2"/>
+        <line x1="122" y1="98" x2="188" y2="98" stroke="#C9BE9F" stroke-width="2"/>
+        <line x1="122" y1="114" x2="198" y2="114" stroke="#C9BE9F" stroke-width="2"/>
+        <line x1="122" y1="130" x2="170" y2="130" stroke="#C9BE9F" stroke-width="2"/>
+        <circle cx="185" cy="158" r="14" stroke="#6FA084" stroke-width="2" fill="none"/>
+        <path d="M178 158 L183 163 L193 151" stroke="#6FA084" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section id="categorias" class="wrap">
+  <div class="section-head">
+    <p class="eyebrow">Temas que recibimos</p>
+    <h2>Elige el área que más se ajuste a tu idea</h2>
+    <p>Puedes seleccionar un tema aquí para que quede marcado en el formulario, o elegirlo directamente más abajo.</p>
+  </div>
+  <div class="cat-grid" id="catGrid"></div>
+</section>
+
+<section id="formulario" class="wrap">
+  <div class="section-head">
+    <p class="eyebrow">Formulario</p>
+    <h2>Registra tu sugerencia</h2>
+    <p>Solo la categoría y la descripción son obligatorias. Puedes enviarla de forma anónima.</p>
+  </div>
+
+  <form class="sheet" id="suggestForm" novalidate>
+    <span class="sheet-ref mono" id="nextRef">REF —</span>
+
+    <div class="row2">
+      <div class="field" id="fieldName">
+        <label for="inpName">Nombre</label>
+        <input type="text" id="inpName" placeholder="Opcional">
+      </div>
+      <div class="field">
+        <label for="inpProgram">Programa académico</label>
+        <input type="text" id="inpProgram" placeholder="Ej. Ingeniería de Sistemas">
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="inpCategory">Categoría *</label>
+      <select id="inpCategory">
+        <option value="">Selecciona un tema</option>
+      </select>
+      <p class="error">Selecciona una categoría para continuar.</p>
+    </div>
+
+    <div class="field">
+      <label for="inpTitle">Título breve</label>
+      <input type="text" id="inpTitle" maxlength="80" placeholder="Resume tu idea en pocas palabras">
+    </div>
+
+    <div class="field" id="fieldMessage">
+      <label for="inpMessage">Describe tu sugerencia *</label>
+      <textarea id="inpMessage" maxlength="600" placeholder="Cuéntanos la situación y qué cambiarías"></textarea>
+      <p class="charcount" id="charCount">0 / 600</p>
+      <p class="error">Escribe tu sugerencia antes de enviarla.</p>
+    </div>
+
+    <div class="checkline">
+      <input type="checkbox" id="inpAnon">
+      <label for="inpAnon">Enviar de forma anónima (se ocultará el nombre y el programa)</label>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-brass" id="submitBtn">Enviar sugerencia</button>
+      <span class="form-note">Tus datos solo se usan para dar seguimiento a la sugerencia.</span>
+    </div>
+
+    <div class="confirm" id="confirmBox">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke-width="1.6"/><path d="M8 12.5 L11 15.5 L16 9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        <b>Sugerencia registrada</b>
+        <span>Gracias por ayudarnos a mejorar la Facultad.</span><br>
+        <span class="ref" id="confirmRef"></span>
+      </div>
+    </div>
+  </form>
+
+  <div class="log" id="registro">
+    <div class="log-head">
+      <h3>Sugerencias enviadas en esta sesión</h3>
+      <span class="log-count" id="logCount">0 registros</span>
+    </div>
+    <div id="logList">
+      <p class="empty-log">Aún no hay sugerencias registradas. Las que envíes aparecerán aquí mientras estés en esta página.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Buzón CUC Escucha es un canal de la Facultad de Ingeniería para recoger ideas sobre bienestar, servicios, clases, inclusión, espacios y procesos académicos.</p>
+    <p>Este micrositio es una demostración solo de frontend: las sugerencias se muestran mientras la página permanece abierta y no se envían a ningún servidor.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
